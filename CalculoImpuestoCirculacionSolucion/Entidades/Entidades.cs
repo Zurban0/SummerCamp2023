@@ -6,6 +6,7 @@ namespace Entidades
         public double ValorBase { get; set; }
         public DateTime AnioMatriculacion { get; set; }
         public EtiquetaDGT EtiquetaDGT { get; set; }
+        public double Impuesto { get; set; }
 
     }
 

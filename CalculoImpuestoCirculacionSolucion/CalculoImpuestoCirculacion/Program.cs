@@ -5,29 +5,85 @@
         static void Main(string[] args)
         {
             var program = new Program();
+            bool mostrarResultado = false;
+            do
+            {
+                Console.WriteLine("1- Nuevo vehículo");
+                Console.WriteLine("2- Calcular");
 
-            DateTime fechaCirculacion = program.PreguntarPorFechaCirculacion();
+                mostrarResultado = program.PreguntarSiCalcularResultados();
+                if (!mostrarResultado)
+                {
+                    DateTime fechaCirculacion = program.PreguntarPorFechaCirculacion();
 
-            Console.WriteLine("Tipo de etiqueta");
-            Console.WriteLine("");
-            Console.WriteLine("1- Sin etiqueta");
-            Console.WriteLine("2- Etiqueta B");
-            Console.WriteLine("3- Etiqueta C");
-            Console.WriteLine("4- Etiqueta ECO");
-            Console.WriteLine("5- Etiqueta CERO");
-            Console.WriteLine("");
+                    Console.WriteLine("Tipo de etiqueta");
+                    Console.WriteLine("");
+                    Console.WriteLine("1- Sin etiqueta");
+                    Console.WriteLine("2- Etiqueta B");
+                    Console.WriteLine("3- Etiqueta C");
+                    Console.WriteLine("4- Etiqueta ECO");
+                    Console.WriteLine("5- Etiqueta CERO");
+                    Console.WriteLine("");
 
 
-            var tipoEtiqueta = program.PreguntarPorTipoEtiqueta();  
-            
-            var valorVehiculo = program.PreguntarPorValorVehiculo();
+                    var tipoEtiqueta = program.PreguntarPorTipoEtiqueta();
 
-            var impuesto = Controlador.CalcularImpuesto(valorVehiculo, fechaCirculacion, tipoEtiqueta);
+                    double valorVehiculo = program.PreguntarPorValorVehiculo();
+                    Controlador.ImportarVehiculo(valorVehiculo, fechaCirculacion, tipoEtiqueta);
+                }
+                else
+                {
+                    var impuestos = Controlador.DevolverValorVehiculos();
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    program.MostrarResultados(impuestos);
 
-            Console.WriteLine("Impuesto: " + impuesto);
+                }
+
+            } while (!mostrarResultado);
+
+
+
 
         }
 
+        private void MostrarResultados(List<double> impuestos)
+        {
+            int i = 0;
+            foreach (var impuesto in impuestos)
+            {
+                i+=1;
+                Console.Write("Vehiculo "+i+": ");
+                Console.WriteLine(impuesto+"€");
+            }
+        }
+
+        private bool PreguntarSiCalcularResultados()
+        {
+            bool numCorrecto;
+            int resultado = 0;
+
+            do
+            {
+                numCorrecto = true;
+                Console.Write("Escribe el tipo: ");
+                try
+                {
+                    resultado = int.Parse(Console.ReadLine());
+                    if (resultado < 1 || resultado > 2)
+                    {
+                        numCorrecto = false;
+                    }
+                }
+                catch (Exception)
+                {
+
+                    numCorrecto = false;
+                }
+            } while (numCorrecto == false);
+
+            return resultado == 2;
+        }
         private DateTime PreguntarPorFechaCirculacion()
         {
             bool esNumero;

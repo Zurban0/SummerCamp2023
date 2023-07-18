@@ -5,28 +5,41 @@ namespace CalculoImpuestoCirculacion
 {
     static class Controlador
     {
-       public static double CalcularImpuesto(double valorBase, DateTime anioMatriculacion, int Etiqueta)
+        private static List<Vehiculo> vehiculos = new List<Vehiculo>();
+        public static void ImportarVehiculo(double valorBase, DateTime anioMatriculacion, int Etiqueta)
         {
-            double impuesto = valorBase;
-
             var vehiculo = new Vehiculo()
             {
                 ValorBase = valorBase,
                 AnioMatriculacion = anioMatriculacion,
                 EtiquetaDGT = (EtiquetaDGT)Etiqueta,
             };
+            vehiculo.Impuesto = CalcularImpuesto(vehiculo);
+
+            vehiculos.Add(vehiculo);
+        }
+        public static List<double> DevolverValorVehiculos()
+        {
+            return (from vehiculo in vehiculos.Distinct()
+                   select vehiculo.Impuesto).ToList();
+        }
+       private static double CalcularImpuesto(Vehiculo vehiculo)
+        {
+            double impuesto = vehiculo.ValorBase;
+
+            
 
             var anioAntiguedad = CalcularAnioAntiguedadVehiculo(vehiculo.AnioMatriculacion);
 
-            impuesto = SumarPorAnioAntiguedad(impuesto, anioAntiguedad);
-            impuesto = SumarPorTipoEtiqueta(impuesto, vehiculo.EtiquetaDGT);
+            impuesto += SumarPorAnioAntiguedad(vehiculo.ValorBase, anioAntiguedad);
+            impuesto += SumarPorTipoEtiqueta( vehiculo.ValorBase, vehiculo.EtiquetaDGT);
 
             return impuesto;
         }
 
         private static double SumarPorTipoEtiqueta(double impuesto, EtiquetaDGT etiqueta)
         {
-            int porcentaje = 0;
+            double porcentaje = 0;
 
             switch (etiqueta)
             {
@@ -49,24 +62,24 @@ namespace CalculoImpuestoCirculacion
                     break;
             }
 
-            return CalcularPorcentajeAImpuesto(impuesto, porcentaje) + impuesto;
-        }
+            return CalcularPorcentajeAImpuesto(impuesto, porcentaje);
+        }       
 
-        private static double SumarPorAnioAntiguedad(double impuesto, int anioAntiguedad)
+        private static double SumarPorAnioAntiguedad(double impuesto, double anioAntiguedad)
         {
-            return CalcularPorcentajeAImpuesto(impuesto, anioAntiguedad) + impuesto;
+            return CalcularPorcentajeAImpuesto(impuesto, anioAntiguedad);
 
         }
 
-        private static double CalcularPorcentajeAImpuesto(double impuesto, int porcentaje)
+        private static double CalcularPorcentajeAImpuesto(double impuesto, double porcentaje)
         {
-            return (impuesto * (porcentaje / 100));
+            return impuesto * (1 + porcentaje / (double)100);
         }
 
-        private static int CalcularAnioAntiguedadVehiculo(DateTime anioMatriculacion)
+        private static double CalcularAnioAntiguedadVehiculo(DateTime anioMatriculacion)
         {
             DateTime fechaActual = DateTime.Now;
-            int anioAntiguedad = fechaActual.Year - anioMatriculacion.Year;
+            double anioAntiguedad = fechaActual.Year - anioMatriculacion.Year;
             if ( anioMatriculacion.Month < fechaActual.Month)
             {
                 anioAntiguedad += 1;
@@ -82,4 +95,5 @@ namespace CalculoImpuestoCirculacion
 
         }
     }
+
 }
