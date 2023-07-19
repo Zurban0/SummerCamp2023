@@ -2,19 +2,20 @@
 {
     public class Moneda
     {
-        public Moneda(double valor, TipoMoneda tipo)
+        public Moneda(int id, double valor, string tipo)
         {
+            Id = id;
             Valor=valor;
             Tipo=tipo;
         }
-
+        public int Id { get; set; }
         public double Valor { get; set; }
-        public TipoMoneda Tipo { get; set; }
+        public string Tipo { get; set; }
+        public override string ToString()
+        {
+            return String.Concat(Id+"."+Tipo+"("+Valor+")");
+        }
     }
-    public enum TipoMoneda
-    {
-        Euros,
-        Dolares,
-        Libras
-    }
+
+
 }
