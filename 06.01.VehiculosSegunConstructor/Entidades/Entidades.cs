@@ -18,6 +18,8 @@
             Marca=marca;
             Modelo=modelo;
         }
+        public Vehiculo() { }
+
 
         public DateTime? AnioCompra { get; set; } = null;
         public Color? Color { get; set; } = null;

@@ -4,7 +4,7 @@ namespace VehiculosSegunConstructor
 {
     static class Controlador
     {
-        static Vehiculo vehiculo = null;
+        static Vehiculo vehiculo = new Vehiculo();
         public static void CrearVehiculo(DateTime anioCompra, int color, string marca, string modelo)
         {
             vehiculo = new Vehiculo(anioCompra, (Color)color, marca, modelo);
@@ -20,10 +20,6 @@ namespace VehiculosSegunConstructor
         public static Object ObtenerDatosVehiculo()
         {
             return vehiculo;
-        }
-        public static void ResetearVehiculo()
-        {
-            vehiculo = null;
         }
     }
 }
