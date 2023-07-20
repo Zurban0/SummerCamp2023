@@ -6,17 +6,17 @@ namespace ConversorDeMoneda
     {
         static void Main(string[] args)
         {
-            Program programa = new Program();
+            //Program programa = new Program();
 
-            Controlador.CrearMonedas();
+            //Controlador.CrearMonedas();
 
-            int monedaOrigen = programa.PedirTipoMoneda("origen");
-            int monedaDestino = programa.PedirTipoMoneda("destino");
-            double dineroAConvertir = programa.PedirDineroAConvertir();
+            //int monedaOrigen = programa.PedirTipoMoneda("origen");
+            //int monedaDestino = programa.PedirTipoMoneda("destino");
+            //double dineroAConvertir = programa.PedirDineroAConvertir();
 
-            Console.WriteLine(Controlador.ConvertirMoneda(monedaOrigen, monedaDestino, dineroAConvertir));
+            //Console.WriteLine(Controlador.ConvertirMoneda(monedaOrigen, monedaDestino, dineroAConvertir));
 
-            ;
+
         }
 
         private double PedirDineroAConvertir()
