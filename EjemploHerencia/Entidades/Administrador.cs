@@ -7,6 +7,7 @@ namespace Entidades
 {
     public class Administrador : Empleado
     {
+        public Administrador() { }
         public Administrador(string nombre, Turno turno, int? plazaParking, string? telefono, Empleado? jefe) : base(nombre, telefono, jefe)
         {
             Turno = turno;

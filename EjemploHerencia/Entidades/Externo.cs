@@ -7,6 +7,7 @@ namespace Entidades
 {
     public class Externo : Empleado
     {
+        public Externo() { }
         public Externo(string nombre, Empresa empresa, string? telefono, Empleado? jefe) : base(nombre, telefono, jefe)
         {
             Empresa=empresa;

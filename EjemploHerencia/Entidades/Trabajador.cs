@@ -4,6 +4,7 @@ namespace Entidades
 {
     public class Trabajador : Empleado
     {
+        public Trabajador() { }
         public Trabajador(string nombre, Turno turno, string? telefono, Empleado? jefe) : base(nombre, telefono, jefe) 
         { 
             Turno = turno;

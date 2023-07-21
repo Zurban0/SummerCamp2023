@@ -7,6 +7,7 @@ namespace Entidades
 {
     public partial class Empleado
     {
+        public Empleado() { }
         public Empleado(string nombre, string? telefono, Empleado? jefe)
         {
             Nombre = nombre;
