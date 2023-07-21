@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public partial class Empleado
-    {
-        public string? Telefono { get; set; }
-        public Empleado? Jefe { get; set; }
-
-    }
+        public enum Turno
+        {
+            Mañana,
+            Trade,
+            Noche
+        }
 }

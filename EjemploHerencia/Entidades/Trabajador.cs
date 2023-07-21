@@ -1,14 +1,27 @@
 ﻿
 
-namespace EjemploHerencia
+namespace Entidades
 {
     public class Trabajador : Empleado
     {
-        public Trabajador(string nombre) : base(nombre) { }
+        public Trabajador(string nombre, Turno turno, string? telefono, Empleado? jefe) : base(nombre, telefono, jefe) 
+        { 
+            Turno = turno;
+        }
+        public Turno Turno { get; set; }
 
+        public override void CalculoVacaciones()
+        {
+            base.CalculoVacaciones();
+            diasVacaciones += 15;
+        }
         public override string ToString()
         {
-            return Nombre + "Es un trabajador";
+            string telefonoVacacionesSuperior = SacarTelefonoDiasVacacionesSuperior();
+
+            return Nombre + " es un trabajador"+telefonoVacacionesSuperior;
         }
     }
+
+    
 }

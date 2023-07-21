@@ -10,13 +10,24 @@ namespace EjemploHerencia
             Controlador.CrearDiferentesClases();
             Program program = new Program();
             program.MostrarResultados(Controlador.ObtenerToStringClases());
+            program.PreguntarPorMasEmpleados();
         }
         private void MostrarResultados(List<string> empleados)
         {
-            foreach (var empleado in empleados)
+            empleados.ForEach(e => Console.WriteLine(e+"\n"));
+        }
+
+        private bool PreguntarPorMasEmpleados()
+        {
+            string result;
+            do
             {
-                Console.WriteLine(empleado);
-            }
+                Console.Write("¿Quieres crear mas personas(Y/N)?: ");
+                result = Console.ReadLine().ToUpper();
+            } while (result != "Y" && result != "N");
+            
+            return result == "Y";
+
         }
 
     }

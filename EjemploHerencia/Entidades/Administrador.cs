@@ -3,17 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EjemploHerencia
+namespace Entidades
 {
     public class Administrador : Empleado
     {
-        public Administrador(string nombre) : base(nombre)
+        public Administrador(string nombre, Turno turno, int? plazaParking, string? telefono, Empleado? jefe) : base(nombre, telefono, jefe)
         {
-
+            Turno = turno;
+            PlazaParking = plazaParking;
         }
+
+        public Turno Turno { get; set; }
+
+        public int? PlazaParking { get; set; } = null;
+
+        public override void CalculoVacaciones()
+        {
+            diasVacaciones =+9;
+        }
+
         public override string ToString()
         {
-            return Nombre + " es un Administrador";
+            string plazaParking = PlazaParking == null ? "\nNo tiene plaza de parking" : "\nPlaza de parking: "+PlazaParking;
+            string telefonoVacacionesSuperior = SacarTelefonoDiasVacacionesSuperior();
+
+            return Nombre + " es un Administrador"+plazaParking+"\nTurno: "+Turno+telefonoVacacionesSuperior;
         }
     }
 }
