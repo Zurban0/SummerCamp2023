@@ -9,10 +9,11 @@ namespace EjemploHerencia
 {
     public static class Controlador
     {
+        private static List<Empleado> empleados = new List<Empleado>();
         private const string STRING_NAME_TRABAJADOR = "Trabajador";
         private const string STRING_NAME_ADMINISTRADOR = "Administrador";
         private const string STRING_NAME_EXTERNO = "Externo";
-        private static List<Empleado> empleados = new List<Empleado>();
+
         public static void CrearDiferentesClases()
         {
             Administrador maria = new Administrador("Maria", Turno.Trade, 223, "658742364", null);
@@ -58,9 +59,10 @@ namespace EjemploHerencia
         private static string ObtenerResultadoSegunClase(Empleado empleado)
         {
             string mensaje = "";
-
-            switch (empleado.GetType().Name)
+            try
             {
+                switch (empleado.GetType().Name)
+                {
                 case STRING_NAME_TRABAJADOR:
                     mensaje = ObtenerTurno(empleado);
                     break;
@@ -73,8 +75,12 @@ namespace EjemploHerencia
                 default:
                     mensaje = "No tiene ninguna clase en especifico";
                     break;
+                }
             }
-
+            catch (ErrorBaseDatosException ex)
+            {
+                mensaje = ex.Message + "\nFecha y hora del error: " + ex.FechaHora.ToString();
+            }
             return mensaje;
         }
 
@@ -88,20 +94,15 @@ namespace EjemploHerencia
         {
             Administrador administrador = (Administrador)empleado;
             string mensaje = "";
-            try
+
+            if(administrador.PlazaParking is not null) {
+                mensaje = administrador.Nombre + " es administrador. Su plaza de parking es "+ administrador.PlazaParking;
+                throw new ErrorBaseDatosException("Error al conectar a BBDD", DateTime.Now);
+            } else
             {
-                if(administrador.PlazaParking is not null) {
-                    mensaje = administrador.Nombre + " es administrador. Su plaza de parking es "+ administrador.PlazaParking;
-                    throw new ErrorBaseDatosException("Error al conectar a BBDD", DateTime.Now);
-                } else
-                {
-                    mensaje = administrador.Nombre + " es administrador pero no tiene plaza de parking";
-                }
+                mensaje = administrador.Nombre + " es administrador pero no tiene plaza de parking";
             }
-            catch (ErrorBaseDatosException ex)
-            {
-                mensaje = ex + "\nFecha y hora del error: " + ex.FechaHora.ToString();
-            }
+
             return mensaje;
         }
 

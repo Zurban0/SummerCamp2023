@@ -20,7 +20,7 @@ namespace Entidades
         {
             string telefonoVacacionesSuperior = SacarTelefonoDiasVacacionesSuperior();
 
-            return Nombre + " es un trabajador"+telefonoVacacionesSuperior;
+            return Nombre + " es un trabajador" + "\nTurno: " + Turno + telefonoVacacionesSuperior;
         }
     }
 

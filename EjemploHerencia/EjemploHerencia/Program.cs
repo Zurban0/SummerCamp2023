@@ -9,11 +9,12 @@ namespace EjemploHerencia
         {
             Controlador.CrearDiferentesClases();
             Program program = new Program();
+            //program.MostrarResultados(Controlador.ObtenerToStringClases());
             program.MostrarResultados(Controlador.ObtenerDatosSegunClases());
         }
-        private void MostrarResultados(List<string> empleados)
+        private void MostrarResultados(List<string> mensajeEmpleados)
         {
-            empleados.ForEach(e => Console.WriteLine(e+"\n"));
+            mensajeEmpleados.ForEach(e => Console.WriteLine(e+"\n"));
         }
 
 

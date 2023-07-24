@@ -23,8 +23,8 @@ namespace Entidades
         }
         protected virtual string SacarTelefonoDiasVacacionesSuperior()
         {
-            string resultado = Telefono == null ? "\nNo tiene número de teléfono" : "\nTeléfono: " + Telefono;
-            resultado += Jefe == null ? "\nNo tiene ningun superior" : "\nJefe: "+Jefe.Nombre;
+            string resultado = Telefono is null ? "\nNo tiene número de teléfono" : "\nTeléfono: " + Telefono;
+            resultado += Jefe is null ? "\nNo tiene ningun superior" : "\nJefe: "+Jefe.Nombre;
             resultado += diasVacaciones == 0 ? "\nNo tiene dias de vacaciones" : "\nDias de vacaciones: " + diasVacaciones;
 
             return resultado;

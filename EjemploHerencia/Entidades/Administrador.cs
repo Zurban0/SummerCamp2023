@@ -20,12 +20,12 @@ namespace Entidades
 
         public override void CalculoVacaciones()
         {
-            diasVacaciones =+9;
+            diasVacaciones = +9;
         }
 
         public override string ToString()
         {
-            string plazaParking = PlazaParking == null ? "\nNo tiene plaza de parking" : "\nPlaza de parking: "+PlazaParking;
+            string plazaParking = PlazaParking is null ? "\nNo tiene plaza de parking" : "\nPlaza de parking: "+PlazaParking;
             string telefonoVacacionesSuperior = SacarTelefonoDiasVacacionesSuperior();
 
             return Nombre + " es un Administrador"+plazaParking+"\nTurno: "+Turno+telefonoVacacionesSuperior;
