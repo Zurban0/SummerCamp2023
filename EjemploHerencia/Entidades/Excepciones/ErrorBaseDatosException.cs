@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EjemploHerencia
+namespace Entidades
 {
-    internal class ErrorBaseDatosException : Exception
+    public class ErrorBaseDatosException : Exception
     {
         public ErrorBaseDatosException(string mensaje, DateTime ferchaHora) : base(mensaje)
         {

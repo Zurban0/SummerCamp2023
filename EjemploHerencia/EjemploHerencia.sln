@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemploHerencia", "EjemploHerencia\EjemploHerencia.csproj", "{CF9F6BD6-A4AF-4162-ABB0-2E2C4D178817}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjemploHerencia", "EjemploHerencia\EjemploHerencia.csproj", "{CF9F6BD6-A4AF-4162-ABB0-2E2C4D178817}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{8F9001D6-BF9B-4079-9652-FC8953B24CF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{8F9001D6-BF9B-4079-9652-FC8953B24CF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
