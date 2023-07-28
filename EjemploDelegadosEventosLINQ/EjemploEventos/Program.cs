@@ -1,4 +1,5 @@
-﻿using EntidadesEventos;
+﻿using EjemploEventos.Negocio;
+using EntidadesEventos;
 
 namespace EjemploEventos
 {
@@ -6,16 +7,18 @@ namespace EjemploEventos
     {
         static void Main(string[] args)
         {
-            Reloj reloj = new();
-            RelojDigital relojDigital = new();
-            relojDigital.Suscribir(reloj);
+            Controller.InicializarControladorEventoVariable();
+            Controller.SuscribirARegistro();
+            Controller.SuscribirARelojDigital();
+            Controller.IniciarReloj();
+        }
 
-            var log = new Registro();
-            log.Suscribir(reloj);
-
-
-            reloj.IniciarReloj();
-
+        private static void MyClass_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "MyStringProperty")
+            {
+                Console.WriteLine(stringChange.MyStringProperty);
+            }
         }
     }
 }

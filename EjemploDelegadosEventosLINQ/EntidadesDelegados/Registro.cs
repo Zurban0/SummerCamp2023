@@ -8,19 +8,20 @@ namespace EntidadesEventos
 {
     public class Registro
     {
-        private DateTime llamada = DateTime.Now;
-        public void Suscribir(Reloj reloj)
+        private DateTime fechaBaseParaCalculoSegundos = DateTime.Now;
+        private static int SEGUNDOS_PARA_REGISTRO = 10;
+        public void Suscribir(Reloj reloj, StringChange stringChange)
         { 
 
             reloj.CambioSegundoEvento += Reloj_CambioSegundoEvento;
         }
 
-        private void Reloj_CambioSegundoEvento(object reloj, InformacionTiempoEventArgs e)
+        private void Reloj_CambioSegundoEvento(Reloj reloj, InformacionTiempoEventArgs e, StringChange stringChange)
         {
-            if ((int)DateTime.Now.Subtract(llamada).Seconds >= 10)
+            if ((int)DateTime.Now.Subtract(fechaBaseParaCalculoSegundos).Seconds >= SEGUNDOS_PARA_REGISTRO)
             {
-                Console.WriteLine($"Hora Registrada: {e.Hora.ToString()}:{e.Minuto.ToString()}:{e.Segundo.ToString()}");
-                llamada = DateTime.Now;
+                stringChange.MyStringProperty = $"Hora de Registro: {e}";
+                fechaBaseParaCalculoSegundos = DateTime.Now;
             }
 
         }

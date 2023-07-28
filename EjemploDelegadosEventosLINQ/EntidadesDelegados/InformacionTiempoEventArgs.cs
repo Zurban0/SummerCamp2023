@@ -13,5 +13,9 @@
         public int Minuto { get; set; }
         public int Segundo { get; set; }
 
+        public override string ToString()
+        {
+            return $"{Hora}:{Minuto}:{Segundo}";
+        }
     }
 }

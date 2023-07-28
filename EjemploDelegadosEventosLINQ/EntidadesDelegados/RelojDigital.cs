@@ -8,15 +8,14 @@ namespace EntidadesEventos
 {
     public class RelojDigital
     {
-        public void Suscribir(Reloj reloj)
+        public void Suscribir(Reloj reloj, StringChange stringChange)
         {
             reloj.CambioSegundoEvento += Reloj_CambioSegundoEvento;
         }
 
-        private void Reloj_CambioSegundoEvento(object reloj, InformacionTiempoEventArgs e)
+        private void Reloj_CambioSegundoEvento(Reloj reloj, InformacionTiempoEventArgs e, StringChange stringChange)
         {
-            
-            Console.WriteLine($"Hora Actual: {e.Hora.ToString()}:{e.Minuto.ToString()}:{e.Segundo.ToString()}");
+            stringChange.MyStringProperty = $"Hora Actual: {e}";
         }
     }
 }

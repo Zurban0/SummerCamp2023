@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Delegados", "Delegados", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Eventos", "Eventos", "{317C7336-BB83-4790-8BF5-5D3613C8FD22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemploEventos", "EjemploEventos\EjemploEventos.csproj", "{CE78EA88-8458-49CD-9470-E6284D6B4739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjemploEventos", "EjemploEventos\EjemploEventos.csproj", "{CE78EA88-8458-49CD-9470-E6284D6B4739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntidadesEventos", "EntidadesDelegados\EntidadesEventos.csproj", "{8D77111F-A555-4142-AC15-41984685E300}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntidadesEventos", "EntidadesDelegados\EntidadesEventos.csproj", "{8D77111F-A555-4142-AC15-41984685E300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaControladorVariableCambia", "PruebaControladorVariableCambia\PruebaControladorVariableCambia.csproj", "{B2ECA2E5-85A8-4795-BF5B-5F0F02490137}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{8D77111F-A555-4142-AC15-41984685E300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D77111F-A555-4142-AC15-41984685E300}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D77111F-A555-4142-AC15-41984685E300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2ECA2E5-85A8-4795-BF5B-5F0F02490137}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2ECA2E5-85A8-4795-BF5B-5F0F02490137}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2ECA2E5-85A8-4795-BF5B-5F0F02490137}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2ECA2E5-85A8-4795-BF5B-5F0F02490137}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{3571780B-0DEE-4FEE-8971-AFBA15D2AE20} = {C4A972F4-601E-4A89-ABAD-8550CB47093F}
 		{CE78EA88-8458-49CD-9470-E6284D6B4739} = {317C7336-BB83-4790-8BF5-5D3613C8FD22}
 		{8D77111F-A555-4142-AC15-41984685E300} = {317C7336-BB83-4790-8BF5-5D3613C8FD22}
+		{B2ECA2E5-85A8-4795-BF5B-5F0F02490137} = {317C7336-BB83-4790-8BF5-5D3613C8FD22}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA6FC758-8A86-4D2E-8888-B9F0222C9C5A}

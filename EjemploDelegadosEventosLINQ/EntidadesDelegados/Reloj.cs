@@ -4,16 +4,16 @@ namespace EntidadesEventos
     public class Reloj
     {
         //Delegado
-        public delegate void CambioSegundoDelegado(object reloj, InformacionTiempoEventArgs informacionTiempo);
+        public delegate void CambioSegundoDelegado(Reloj reloj, InformacionTiempoEventArgs informacionTiempo, StringChange stringChange);
 
         //Evento
         public event CambioSegundoDelegado CambioSegundoEvento;
         public Reloj() { }
         private int segundo;
-        public void IniciarReloj()
+        public void IniciarReloj(StringChange stringChange)
         {
             DateTime fechaHoraActual;
-            for(; ; )
+            for(;;)
             {
                 Thread.Sleep(100);
 
@@ -25,9 +25,8 @@ namespace EntidadesEventos
 
                     if(CambioSegundoEvento != null)
                     {
-                        CambioSegundoEvento(this, informacionTiempo);
-                    }
-                    
+                        CambioSegundoEvento(this, informacionTiempo, stringChange);
+                    }           
                 }
                 segundo  = fechaHoraActual.Second;
             }
