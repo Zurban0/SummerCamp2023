@@ -7,7 +7,8 @@ namespace EjemploFuncAction
         static void Main(string[] args)
         {
             var ejemplo = new Ejemplo();
-            ejemplo.EjemploDelegados1();
+            ejemplo.EjemploFunc();
+            ejemplo.EjemploAction();
         }
     }
 
