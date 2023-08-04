@@ -1,13 +1,21 @@
-{
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:41016",
+      "sslPort": 44388
+    }
+  },
   "profiles": {
-    "EjemploMVC": {
+    "EjercicioCorreosMVC": {
       "commandName": "Project",
+      "dotnetRunMessages": true,
       "launchBrowser": true,
+      "applicationUrl": "https://localhost:7290;http://localhost:5072",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7293;http://localhost:5259"
+      }
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -15,14 +23,6 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    }
-  },
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:8378",
-      "sslPort": 44309
     }
   }
 }
