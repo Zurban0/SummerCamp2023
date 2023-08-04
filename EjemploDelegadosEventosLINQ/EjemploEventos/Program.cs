@@ -12,12 +12,6 @@ namespace EjemploEventos
             Controller.SuscribirARelojDigital();
             Controller.IniciarReloj();
         }
-        private static void MyClass_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == "MyStringProperty")
-            {
-                Console.WriteLine(stringChange.MyStringProperty);
-            }
-        }
+        
     }
 }

@@ -37,5 +37,6 @@ namespace EjemploEventos.Negocio
                 Console.WriteLine(stringChange.MyStringProperty);
             }
         }
+
     }
 }
