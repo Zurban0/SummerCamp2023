@@ -10,9 +10,10 @@ namespace EjercicioCorreosMVC.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IServicioMails servicioMails;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IServicioMails servicioMails)
         {
             _logger = logger;
+            this.servicioMails = servicioMails;
         }
 
         public IActionResult Index()
