@@ -26,6 +26,7 @@ namespace EjercicioCorreosMVC.Controllers
 
         public IActionResult Privacy()
         {
+            throw new Exception();
             return View();
         }
 
